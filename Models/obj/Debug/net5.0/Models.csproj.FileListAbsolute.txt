@@ -1,0 +1,12 @@
+D:\Lanit-tercom\HW3\Models\bin\Debug\net5.0\Models.deps.json
+D:\Lanit-tercom\HW3\Models\bin\Debug\net5.0\Models.dll
+D:\Lanit-tercom\HW3\Models\bin\Debug\net5.0\ref\Models.dll
+D:\Lanit-tercom\HW3\Models\bin\Debug\net5.0\Models.pdb
+D:\Lanit-tercom\HW3\Models\obj\Debug\net5.0\Models.csprojAssemblyReference.cache
+D:\Lanit-tercom\HW3\Models\obj\Debug\net5.0\Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Lanit-tercom\HW3\Models\obj\Debug\net5.0\Models.AssemblyInfoInputs.cache
+D:\Lanit-tercom\HW3\Models\obj\Debug\net5.0\Models.AssemblyInfo.cs
+D:\Lanit-tercom\HW3\Models\obj\Debug\net5.0\Models.csproj.CoreCompileInputs.cache
+D:\Lanit-tercom\HW3\Models\obj\Debug\net5.0\Models.dll
+D:\Lanit-tercom\HW3\Models\obj\Debug\net5.0\ref\Models.dll
+D:\Lanit-tercom\HW3\Models\obj\Debug\net5.0\Models.pdb
