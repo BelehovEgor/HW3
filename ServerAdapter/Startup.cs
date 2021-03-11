@@ -14,6 +14,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Models;
 using Models.Request;
+using Microsoft.Extensions.Logging;
+using ServerAdapter.Logger;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace ServerAdapter
 {

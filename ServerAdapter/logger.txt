@@ -1,0 +1,6 @@
+Bus started: rabbitmq://localhost/
+Now listening on: https://localhost:13015
+Now listening on: http://localhost:13016
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\Lanit-tercom\HW3\ServerAdapter

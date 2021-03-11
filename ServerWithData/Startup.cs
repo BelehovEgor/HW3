@@ -15,10 +15,6 @@ using ServerWithData.Mapper;
 using ServerWithData.Mapper.Impl;
 using ServerWithData.Repositories;
 using ServerWithData.Repositories.Impl;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ServerWithData
 {
@@ -135,7 +131,7 @@ namespace ServerWithData
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
