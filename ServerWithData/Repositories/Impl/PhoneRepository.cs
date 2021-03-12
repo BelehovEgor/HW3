@@ -23,15 +23,21 @@ namespace ServerWithData.Repositories.Impl
 
         public PostPhoneResponse Add(Phone phone)
         {
-            var res = _context.Phones.Where(p => p.Id == phone.Id).FirstOrDefault();
-            if (res == null)
-            {
-                var dbPhone = _mapper.GetBack(phone);
-                _context.Phones.Add(dbPhone);
-                _context.SaveChanges();
-                return new PostPhoneResponse { Phone = phone };
-            }
-            return new PostPhoneResponse { Phone = _mapper.GetFront(res) };
+            var res = _context.Phones.FirstOrDefault(p => p.Id == phone.Id);
+            if (res != null)
+                return new PostPhoneResponse { Phone = _mapper.GetFront(res) };
+            
+            var dbPhone = _mapper.GetBack(phone);
+            _context.Phones.Add(dbPhone);
+            //if (dbPhone.BuildingId != null) {
+            //    var building = _context.Buildings.FirstOrDefault(b => b.Id == dbPhone.BuildingId);
+            //    if (building != null)
+            //        building.PhoneId = dbPhone.Id;
+            //    else
+            //        dbPhone.BuildingId = null;
+            //}
+            _context.SaveChanges();
+            return new PostPhoneResponse { Phone = phone };
         }
 
         public GetPhoneResponse Get(Guid id)
@@ -51,7 +57,7 @@ namespace ServerWithData.Repositories.Impl
 
         public DeletePhoneResponse Remove(Guid id)
         {
-            var dbphone = _context.Phones.Where(p => p.Id == id).FirstOrDefault();
+            var dbphone = _context.Phones.FirstOrDefault(p => p.Id == id);
             if (dbphone == null)
                 return new DeletePhoneResponse { IsSuccess = false };
 

@@ -23,7 +23,7 @@ namespace ServerWithData.Repositories.Impl
 
         public PostUserResponse Add(User user)
         {
-            var res = _context.Users.Where(u => u.Id == user.Id).FirstOrDefault();
+            var res = _context.Users.FirstOrDefault(u => u.Id == user.Id);
             if (res == null)
             {
                 var dbUser = _mapper.GetBack(user);
@@ -36,7 +36,7 @@ namespace ServerWithData.Repositories.Impl
 
         public GetUserResponse Get(Guid id)
         {
-            return new GetUserResponse { User = _mapper.GetFront(_context.Users.Where(u => u.Id == id).FirstOrDefault()) };
+            return new GetUserResponse { User = _mapper.GetFront(_context.Users.FirstOrDefault(u => u.Id == id)) };
         }
 
         public GetUsersResponse GetAll()
@@ -51,7 +51,7 @@ namespace ServerWithData.Repositories.Impl
 
         public DeleteUserResponse Remove(Guid id)
         {
-            var dbuser = _context.Users.Where(u => u.Id == id).FirstOrDefault();
+            var dbuser = _context.Users.FirstOrDefault(u => u.Id == id);
             if (dbuser == null)
                 return new DeleteUserResponse { IsSuccess = false };
 

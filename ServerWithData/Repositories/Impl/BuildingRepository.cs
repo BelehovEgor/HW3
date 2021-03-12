@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using Models.Response;
 using ServerWithData.DbEntity;
@@ -23,40 +24,26 @@ namespace ServerWithData.Repositories.Impl
 
         public PostBuildingResponse Add(Building building)
         {
-            var res = _context.Buildings.Where(b => b.Id == building.Id).FirstOrDefault();
-            if (res == null)
-            {
-                var dbbuilding = _mapper.GetBack(building);
-                var owner = _context.Users.Where(u => dbbuilding.OwnerId == u.Id).FirstOrDefault();
-                if (owner != null)
-                {
-                    dbbuilding.Owner = owner;
-                    owner.Buildings.Add(dbbuilding);
-                }
-                else
-                {
-                    dbbuilding.OwnerId = null;
-                }
-                var phone = _context.Phones.Where(p => p.Id == dbbuilding.PhoneId).FirstOrDefault();
-                if (phone != null)
-                {
-                    dbbuilding.Phone = phone;
-                    phone.Building = dbbuilding;
-                }
-                else
-                {
-                    dbbuilding.PhoneId = null;
-                }
-                _context.Buildings.Add(dbbuilding);
-                _context.SaveChanges();
-                return new PostBuildingResponse { Building = _mapper.GetFront(dbbuilding) };
-            }
-            return new PostBuildingResponse{ Building = _mapper.GetFront(res) };
+            var res = _context.Buildings.FirstOrDefault(b => b.Id == building.Id);
+            if (res != null)
+                return new PostBuildingResponse { Building = _mapper.GetFront(res) };
+
+            var dbbuilding = _mapper.GetBack(building);
+            var owner = _context.Users.FirstOrDefault(u => dbbuilding.OwnerId == u.Id);
+            dbbuilding.OwnerId = owner?.Id;
+            
+            var phone = _context.Phones.FirstOrDefault(p => p.Id == dbbuilding.PhoneId);
+            dbbuilding.PhoneId = phone?.Id;
+            
+            _context.Buildings.Add(dbbuilding);
+            _context.SaveChanges();
+            return new PostBuildingResponse { Building = _mapper.GetFront(dbbuilding) };
+            
         }
 
         public GetBuildingResponse Get(Guid id)
         {
-            return new GetBuildingResponse { Building = _mapper.GetFront(_context.Buildings.Where(b => b.Id == id).FirstOrDefault())};
+            return new GetBuildingResponse { Building = _mapper.GetFront(_context.Buildings.FirstOrDefault(b => b.Id == id))};
         }
 
         public GetBuildingsResponse GetAll()
@@ -71,7 +58,7 @@ namespace ServerWithData.Repositories.Impl
 
         public DeleteBuildingResponse Remove(Guid id)
         {
-            var res = _context.Buildings.Where(b => b.Id == id).FirstOrDefault();
+            var res = _context.Buildings.FirstOrDefault(b => b.Id == id);
             if(res == null)
                 return new DeleteBuildingResponse { IsSuccess = false };
 
@@ -82,38 +69,10 @@ namespace ServerWithData.Repositories.Impl
 
         public PutBuildingResponse Update(Building building)
         {
-            var res = _context.Buildings.Where(b => b.Id == building.Id).FirstOrDefault();
-            if (res != null)
-            {
-                var dbbuilding = _mapper.GetBack(building);
-                var owner = _context.Users.Where(u => dbbuilding.OwnerId == u.Id).FirstOrDefault();
-                if (owner != null)
-                {
-                    dbbuilding.Owner = owner;
-                    owner.Buildings.Add(dbbuilding);
-                    _context.Links.Add(new DbLinkBuildingUser { Id = Guid.NewGuid(), BuildingId = dbbuilding.Id, OwnerId = owner.Id });
-                }
-                else
-                {
-                    dbbuilding.OwnerId = null;
-                }
-                var phone = _context.Phones.Where(p => p.Id == dbbuilding.PhoneId).FirstOrDefault();
-                if (phone != null)
-                {
-                    dbbuilding.Phone = phone;
-                    phone.Building = dbbuilding;
-                }
-                else
-                {
-                    dbbuilding.PhoneId = null;
-                }
+            _context.Buildings.Update(_mapper.GetBack(building));
 
-                _context.Buildings.Update(dbbuilding);
-
-                _context.SaveChanges();
-                return new PutBuildingResponse();
-            }
-            return new PutBuildingResponse();
+            _context.SaveChanges();
+            return new PutBuildingResponse(); 
         }
     }
 }

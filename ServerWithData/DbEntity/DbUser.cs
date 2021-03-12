@@ -17,7 +17,6 @@ namespace ServerWithData.DbEntity
         public int? Age { get; set; }
 
         public ICollection<DbBuilding> Buildings { get; set; } = new HashSet<DbBuilding>();
-        public ICollection<DbLinkBuildingUser> Link { get; set; } = new HashSet<DbLinkBuildingUser>();
 
     }
 
@@ -46,11 +45,6 @@ namespace ServerWithData.DbEntity
             builder
                 .HasMany(u => u.Buildings)
                 .WithOne(b => b.Owner);
-
-            builder
-                .HasMany(u => u.Link)
-                .WithOne(l => l.User)
-                .HasForeignKey(l => l.OwnerId);
 
         }
     }
