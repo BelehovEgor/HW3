@@ -37,3 +37,10 @@ D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\RabbitMQ.Client.dll
 D:\Lanit-tercom\HW3\ServerAdapter\obj\Debug\net5.0\ServerAdapter.csproj.CopyComplete
 D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Models.dll
 D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Models.pdb
+D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Serilog.dll
+D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Serilog.Extensions.Logging.File.dll
+D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Serilog.Formatting.Compact.dll
+D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Serilog.Sinks.Async.dll
+D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Serilog.Sinks.File.dll
+D:\Lanit-tercom\HW3\ServerAdapter\bin\Debug\net5.0\Serilog.Sinks.RollingFile.dll
