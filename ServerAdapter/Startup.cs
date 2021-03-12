@@ -3,16 +3,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MassTransit.ExtensionsDependencyInjectionIntegration;
 using Microsoft.Extensions.Hosting;
 using ServerAdapter.Commands;
 using ServerAdapter.Commands.Impl;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Models;
 using Models.Request;
 
 namespace ServerAdapter

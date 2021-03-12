@@ -45,6 +45,7 @@ namespace ServerWithData.DbEntity
             builder
                 .HasMany(u => u.Buildings)
                 .WithOne(b => b.Owner);
+
         }
     }
 }

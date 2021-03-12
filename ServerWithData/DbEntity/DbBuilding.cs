@@ -49,8 +49,9 @@ namespace ServerWithData.DbEntity
 
             builder
                 .HasOne(b => b.Phone)
-                .WithOne(p => p.Building)
-                .HasForeignKey<DbPhone>(b => b.BuildingId);
+                .WithOne(p => p.Building);
+            //    .HasForeignKey<DbPhone>(b => b.BuildingId);
+
         }
     }
 }

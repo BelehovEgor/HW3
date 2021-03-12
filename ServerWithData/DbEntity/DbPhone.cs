@@ -12,7 +12,7 @@ namespace ServerWithData.DbEntity
         public const string TableName = "Phones";
 
         public Guid Id { get; set; }
-        public Guid? BuildingId { get; set; }
+        //public Guid? BuildingId { get; set; }
         public string Number { get; set; }
 
         public DbBuilding Building { get; set; }
@@ -32,9 +32,9 @@ namespace ServerWithData.DbEntity
                 .HasMaxLength(10)
                 .IsRequired();
 
-            builder
-                .Property(p => p.BuildingId)
-                .IsRequired(false);
+            //builder
+            //    .Property(p => p.BuildingId)
+            //    .IsRequired(false);
 
             builder
                 .HasOne(p => p.Building)

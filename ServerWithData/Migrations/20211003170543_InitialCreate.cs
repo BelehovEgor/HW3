@@ -59,7 +59,7 @@ namespace ServerWithData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    BuildingId = table.Column<Guid>(nullable: true),
+                    //BuildingId = table.Column<Guid>(nullable: true),
                     Number = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
