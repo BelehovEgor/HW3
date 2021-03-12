@@ -14,6 +14,9 @@ namespace ServerWithData.DbEntity
         public Guid Id { get; set; }
         public Guid BuildingId { get; set; }
         public Guid UserId { get; set; }
+
+        public DbUser User { get; set; }
+        public DbBuilding Building { get; set; }
     }
 
     public class DbLinkBuildUserConfiguration : IEntityTypeConfiguration<DbLinkBuildingUser>
@@ -32,6 +35,15 @@ namespace ServerWithData.DbEntity
             builder
                 .Property(u => u.UserId)
                 .IsRequired();
+
+            builder
+                .HasOne(l => l.User)
+                .WithMany(u => u.Link);
+
+            builder
+                .HasOne(l => l.Building)
+                .WithOne(b => b.Link)
+                .HasForeignKey<DbBuilding>(b => b.Id);
         }
     }
 }

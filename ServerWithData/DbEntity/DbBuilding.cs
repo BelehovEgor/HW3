@@ -18,6 +18,7 @@ namespace ServerWithData.DbEntity
 
         public DbUser Owner { get; set; }
         public DbPhone Phone { get; set; }
+        public DbLinkBuildingUser Link { get; set; }
     }
 
     public class DbHouseConfiguration : IEntityTypeConfiguration<DbBuilding>
@@ -51,6 +52,11 @@ namespace ServerWithData.DbEntity
                 .HasOne(b => b.Phone)
                 .WithOne(p => p.Building)
                 .HasForeignKey<DbPhone>(b => b.BuildingId);
+
+            builder
+                .HasOne(b => b.Link)
+                .WithOne(l => l.Building);
+
         }
     }
 }
