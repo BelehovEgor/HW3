@@ -1,0 +1,5 @@
+2021-03-12T23:58:41.0739937+03:00  [INF] Now listening on: "https://localhost:13015" (d826f4b8)
+2021-03-12T23:58:41.0782615+03:00  [INF] Now listening on: "http://localhost:13016" (d826f4b8)
+2021-03-12T23:58:41.0785182+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-12T23:58:41.0785440+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-12T23:58:41.0785620+03:00  [INF] Content root path: "D:\Lanit-tercom\HW3\ServerAdapter" (b5d60022)
