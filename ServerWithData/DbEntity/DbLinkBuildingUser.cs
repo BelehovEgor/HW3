@@ -13,7 +13,7 @@ namespace ServerWithData.DbEntity
 
         public Guid Id { get; set; }
         public Guid BuildingId { get; set; }
-        public Guid UserId { get; set; }
+        public Guid OwnerId { get; set; }
 
         public DbUser User { get; set; }
         public DbBuilding Building { get; set; }
@@ -33,7 +33,7 @@ namespace ServerWithData.DbEntity
                 .IsRequired();
 
             builder
-                .Property(u => u.UserId)
+                .Property(u => u.OwnerId)
                 .IsRequired();
 
             builder

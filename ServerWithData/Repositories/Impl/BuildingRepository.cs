@@ -91,7 +91,7 @@ namespace ServerWithData.Repositories.Impl
                 {
                     dbbuilding.Owner = owner;
                     owner.Buildings.Add(dbbuilding);
-                    //_context.Links.Add(new DbLinkBuildingUser { Id = Guid.NewGuid(), BuildingId = dbbuilding.Id, UserId = owner.Id });
+                    _context.Links.Add(new DbLinkBuildingUser { Id = Guid.NewGuid(), BuildingId = dbbuilding.Id, OwnerId = owner.Id });
                 }
                 else
                 {

@@ -17,7 +17,7 @@ namespace ServerWithData.Migrations
                 name: "LinkTable",
                 columns: table => new
                 {
-                    BuildId = table.Column<Guid>(nullable: false),
+                    BuildingId = table.Column<Guid>(nullable: false),
                     OwnerId = table.Column<Guid>(nullable: false)
                 });
         }

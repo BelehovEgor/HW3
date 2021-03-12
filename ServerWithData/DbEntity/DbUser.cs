@@ -50,7 +50,7 @@ namespace ServerWithData.DbEntity
             builder
                 .HasMany(u => u.Link)
                 .WithOne(l => l.User)
-                .HasForeignKey(l => l.UserId);
+                .HasForeignKey(l => l.OwnerId);
 
         }
     }
