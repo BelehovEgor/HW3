@@ -13,6 +13,7 @@ namespace ServerWithData
         public DbSet<DbUser> Users { get; set; }
         public DbSet<DbBuilding> Buildings { get; set; }
         public DbSet<DbPhone> Phones { get; set; }
+        public DbSet<DbLinkBuildingUser> Links { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
